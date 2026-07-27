@@ -4,6 +4,9 @@ import matter from "gray-matter";
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
 
+// Blog is hidden for now. Flip to true to link it from the navbar and sitemap.
+export const BLOG_ENABLED = false;
+
 export interface BlogPost {
   slug: string;
   title: string;

@@ -5,10 +5,10 @@ import NewsSection from "@/components/NewsSection";
 import PublicationList from "@/components/PublicationList";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import { getAllPosts } from "@/lib/blog";
+import { getAllPosts, BLOG_ENABLED } from "@/lib/blog";
 
 export default function HomePage() {
-  const showBlog = getAllPosts().length > 0;
+  const showBlog = BLOG_ENABLED && getAllPosts().length > 0;
 
   return (
     <div className="flex flex-col min-h-screen w-full px-4 md:px-8 lg:w-3/4 xl:w-2/4 mx-auto">

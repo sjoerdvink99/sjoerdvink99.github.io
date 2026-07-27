@@ -1,13 +1,13 @@
 import { MetadataRoute } from "next";
 import { publications } from "@/data/publications";
-import { getAllPosts } from "@/lib/blog";
+import { getAllPosts, BLOG_ENABLED } from "@/lib/blog";
 
 export const dynamic = "force-static";
 
 const BASE_URL = "https://sjoerdvink99.github.io";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const posts = getAllPosts();
+  const posts = BLOG_ENABLED ? getAllPosts() : [];
 
   const blogEntries: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${BASE_URL}/blog/${post.slug}/`,
@@ -15,6 +15,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly",
     priority: 0.6,
   }));
+
+  const blogIndexEntry: MetadataRoute.Sitemap = BLOG_ENABLED
+    ? [
+        {
+          url: `${BASE_URL}/blog/`,
+          lastModified: new Date(),
+          changeFrequency: "weekly",
+          priority: 0.8,
+        },
+      ]
+    : [];
 
   const publicationEntries: MetadataRoute.Sitemap = publications.map((pub) => ({
     url: `${BASE_URL}/publications/${pub.slug}/`,
@@ -30,12 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
-    {
-      url: `${BASE_URL}/blog/`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
+    ...blogIndexEntry,
     ...blogEntries,
     ...publicationEntries,
   ];

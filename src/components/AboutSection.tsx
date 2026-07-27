@@ -14,7 +14,7 @@ export default function AboutSection() {
         , co-advised by{" "}
         <a
           className="underline"
-          href="https://michael.behrisch.info/"
+          href="https://mbehrisch.github.io/"
           target="_blank"
           rel="noreferrer"
         >
@@ -47,37 +47,26 @@ export default function AboutSection() {
         >
           Visual Analytics Lab
         </a>{" "}
-        at{" "}
-        <a
-          className="underline"
-          href="https://www.tufts.edu/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Tufts University
-        </a>
-        .
+        at Tufts University .
       </p>
 
       <p className="mt-4">
-        I study how humans communicate intent to computational systems. Modern
-        interfaces require users to translate structured intent into
-        unstructured inputs such as text, clicks, or gestures. This makes
-        systems difficult to control and leads to unpredictable behavior,
-        especially in AI systems. My work focuses on making intent explicit by
-        designing representations that capture goals, constraints, and
-        transformations in a structured form that systems can interpret and
-        execute.
+        I study how representations can support effective interaction between
+        humans and AI systems. As AI systems become more capable, interaction
+        increasingly depends on how information is expressed, transformed, and
+        communicated between people and models. My work focuses on designing
+        representations that make this exchange more structured, interpretable,
+        and actionable, enabling people to work with AI systems with greater
+        control and precision.
       </p>
       <p className="mt-4">
-        My research combines formal models and system building. I have shown
-        that interaction has both structure and meaning by modeling it as a
-        language and as a set of semantic predicates. Building on this
-        foundation, I develop representations of intent that enable more
-        reliable and controllable interaction across domains such as AI and data
-        analysis. The goal is to move from interfaces that require users to
-        guess how systems behave to systems that can directly understand and act
-        on human intent.
+        My research combines interaction design, formal modeling, and systems
+        development. I design and build interactive systems that use structured
+        representations to support reasoning, communication, and coordination
+        between humans and AI models. Across domains such as AI and data
+        analysis, I investigate how these representations can serve as a
+        foundation for systems in which people and models can communicate,
+        inspect, and refine complex information together.
       </p>
     </section>
   );

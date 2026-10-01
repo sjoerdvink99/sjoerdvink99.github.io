@@ -71,26 +71,16 @@ export default function Header() {
             />
           </a>
         </div>
-        {/* Hidden for now.
         <div className="mt-4 flex flex-wrap justify-center gap-2 sm:justify-start">
           <a
-            href="/resume.pdf"
+            href="/images/resume.pdf"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center border border-gray-300 px-3 py-1.5 text-sm font-light leading-none transition-colors hover:border-gray-900 hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
           >
             Resume
           </a>
-          <a
-            href="/research-statement.pdf"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center border border-gray-300 px-3 py-1.5 text-sm font-light leading-none transition-colors hover:border-gray-900 hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
-          >
-            Research Statement
-          </a>
         </div>
-        */}
       </div>
     </section>
   );

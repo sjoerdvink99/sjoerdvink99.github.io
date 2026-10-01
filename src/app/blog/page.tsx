@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllPosts } from "@/lib/blog";
+import { ESSAYS } from "@/lib/essays";
 import SubpageLayout from "@/components/SubpageLayout";
 import { notFound } from "next/navigation";
 
@@ -10,7 +11,9 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
-  const posts = getAllPosts();
+  const posts = [...getAllPosts(), ...ESSAYS].sort((a, b) =>
+    a.date < b.date ? 1 : -1
+  );
   if (posts.length === 0) notFound();
 
   return (

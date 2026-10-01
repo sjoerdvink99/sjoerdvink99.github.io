@@ -1,11 +1,16 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { ESSAYS } from "./essays";
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
 
-// Blog is hidden for now. Flip to true to link it from the navbar and sitemap.
-export const BLOG_ENABLED = false;
+export const BLOG_ENABLED = true;
+
+/** Whether the navbar links to the blog: there is at least one post or essay. */
+export function hasBlog() {
+  return BLOG_ENABLED && getAllPosts().length + ESSAYS.length > 0;
+}
 
 export interface BlogPost {
   slug: string;

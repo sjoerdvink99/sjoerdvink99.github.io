@@ -5,3 +5,75 @@
 html {
   scroll-behavior: smooth;
 }
+
+@layer components {
+  /* Break a blog figure out of the narrow text column, up to 72rem wide. */
+  .wide {
+    margin-left: calc(50% - min(36rem, 50vw - 1rem));
+    margin-right: calc(50% - min(36rem, 50vw - 1rem));
+  }
+}
+
+.ir-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  background: transparent;
+  cursor: pointer;
+}
+.ir-range::-webkit-slider-runnable-track {
+  height: 2px;
+  background: #d1d5db;
+}
+.ir-range::-moz-range-track {
+  height: 2px;
+  background: #d1d5db;
+}
+.ir-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  margin-top: -7px;
+  border-radius: 9999px;
+  background: #e11d48;
+  box-shadow: 0 0 0 5px #ffe4e6;
+}
+.ir-range::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border: 0;
+  border-radius: 9999px;
+  background: #e11d48;
+  box-shadow: 0 0 0 5px #ffe4e6;
+}
+.ir-range:focus-visible {
+  outline: 2px solid #e11d48;
+  outline-offset: 4px;
+}
+
+.essay-math .katex-display {
+  margin: 0.9rem 0;
+  text-align: left;
+}
+.essay-math .katex-display > .katex {
+  text-align: left;
+}
+.essay-math p code {
+  border-radius: 0.25rem;
+  background: #f3f4f6;
+  padding: 0.05rem 0.3rem;
+  font-size: 0.88em;
+  color: #111827;
+}
+
+.ae-range::-webkit-slider-thumb {
+  background: #111827;
+  box-shadow: 0 0 0 5px #e5e7eb;
+}
+.ae-range::-moz-range-thumb {
+  background: #111827;
+  box-shadow: 0 0 0 5px #e5e7eb;
+}
+.ae-range:focus-visible {
+  outline-color: #111827;
+}

@@ -21,8 +21,4 @@ export const news: NewsItem[] = [
     date: "September 2024",
     text: "Started PhD in Computer Science at Utrecht University.",
   },
-  {
-    date: "July 2024",
-    text: "Graduated with MSc in Data Science from Utrecht University.",
-  },
 ];

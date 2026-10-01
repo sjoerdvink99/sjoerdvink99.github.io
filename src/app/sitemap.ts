@@ -1,13 +1,14 @@
 import { MetadataRoute } from "next";
 import { publications } from "@/data/publications";
 import { getAllPosts, BLOG_ENABLED } from "@/lib/blog";
+import { ESSAYS } from "@/lib/essays";
 
 export const dynamic = "force-static";
 
 const BASE_URL = "https://sjoerdvink99.github.io";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const posts = BLOG_ENABLED ? getAllPosts() : [];
+  const posts = BLOG_ENABLED ? [...getAllPosts(), ...ESSAYS] : [];
 
   const blogEntries: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${BASE_URL}/blog/${post.slug}/`,

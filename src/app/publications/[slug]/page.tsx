@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { publications } from "@/data/publications";
@@ -67,10 +68,12 @@ export default async function PublicationPage({
 
         {pub.teaserImage && (
           <div className="mb-6">
-            <img
+            <Image
               src={pub.teaserImage}
               alt={`Teaser for ${pub.title}`}
-              className="w-full rounded border border-gray-200"
+              width={1600}
+              height={900}
+              className="h-auto w-full rounded border border-gray-200"
             />
           </div>
         )}

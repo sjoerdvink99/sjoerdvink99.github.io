@@ -1,4 +1,6 @@
 import type { Config } from "tailwindcss";
+import typography from "@tailwindcss/typography";
+import { ir } from "./src/components/blog/palette";
 
 const config: Config = {
   content: [
@@ -7,9 +9,14 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: { ir },
+      fontFamily: {
+        math: ["ui-serif", "Georgia", "Cambria", '"Times New Roman"', "serif"],
+      },
+    },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [typography],
 };
 
 export default config;

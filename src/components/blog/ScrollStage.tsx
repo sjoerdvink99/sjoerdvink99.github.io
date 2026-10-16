@@ -97,7 +97,7 @@ export function ScrollStage({
         ref={ref}
         className="relative mx-auto grid max-w-6xl px-4 lg:grid-cols-[minmax(0,19rem)_minmax(0,1fr)] lg:gap-x-16 lg:px-10 xl:gap-x-24"
       >
-        <div className="relative z-20 [grid-area:1/1] lg:z-auto lg:[grid-area:1/2]">
+        <div className="relative z-20 min-w-0 [grid-area:1/1] lg:z-auto lg:[grid-area:1/2]">
           <div
             ref={frame}
             className={`sticky top-0 flex ${height.frame} items-center bg-white pb-3 pt-12 after:pointer-events-none after:absolute after:inset-x-0 after:top-full after:h-10 after:bg-gradient-to-b after:from-white lg:h-screen lg:bg-transparent lg:py-8 lg:after:hidden`}
@@ -110,7 +110,7 @@ export function ScrollStage({
             </div>
           </div>
         </div>
-        <div className={`relative ${height.text} [grid-area:1/1] lg:z-10 lg:pt-0`}>
+        <div className={`relative min-w-0 ${height.text} [grid-area:1/1] lg:z-10 lg:pt-0`}>
           {Children.toArray(children).map((child, i) => (
             <StepIndex.Provider key={i} value={i}>
               {child}

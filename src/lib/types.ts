@@ -12,7 +12,6 @@ export interface Publication {
   paperLink: string;
   codeLink?: string;
   videoLink?: string;
-  selected: boolean;
   bestPaperAward?: boolean;
   abstract: string;
   bibtex: string;

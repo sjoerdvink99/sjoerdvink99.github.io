@@ -28,7 +28,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-white text-gray-900 antialiased">{children}</body>
+      <body className="bg-white text-gray-900 antialiased">
+        <div className="h-1 w-full bg-blue-600" aria-hidden="true" />
+        {children}
+      </body>
     </html>
   );
 }

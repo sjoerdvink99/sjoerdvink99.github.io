@@ -8,6 +8,15 @@ export interface Essay {
 
 export const ESSAYS: Essay[] = [
   {
+    slug: "gpus",
+    title: "Why AI Runs on GPUs",
+    subtitle:
+      "Matrix multiplication, memory, and the hardware behind language models, built one lane at a time",
+    date: "2026-10-25",
+    description:
+      "An interactive explanation of why GPUs power modern AI: the arithmetic of a language model, parallel lanes and tensor cores, the memory hierarchy and the roofline, tiling, low-precision formats, and why generating text is memory-bound, readable at three depths from intuition to expert.",
+  },
+  {
     slug: "math-for-ai",
     title: "The Math Behind AI",
     subtitle:

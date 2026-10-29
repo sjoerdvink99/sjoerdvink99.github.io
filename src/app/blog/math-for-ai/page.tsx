@@ -43,7 +43,7 @@ export default function MathForAiPage() {
     <Essay>
       <ReadingProgress />
       <ChapterRail chapters={CHAPTERS} />
-      <div className="mx-auto w-full px-4 md:px-8 lg:w-3/4 xl:w-2/4">
+      <div className="mx-auto w-full px-4 md:px-8 lg:w-3/4 xl:w-3/5">
         <Navbar showBlog={showBlog} />
       </div>
 

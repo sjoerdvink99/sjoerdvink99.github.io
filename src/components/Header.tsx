@@ -7,7 +7,7 @@ export default function Header() {
         src="/images/sjoerd.jpg"
         width={160}
         height={160}
-        className="h-32 md:h-40 w-auto mb-4 sm:mb-0 object-cover"
+        className="h-32 w-32 md:h-40 md:w-40 mb-4 sm:mb-0 rounded-full object-cover"
         alt="Sjoerd Vink"
         priority
       />
@@ -42,19 +42,6 @@ export default function Header() {
               height={24}
               className="mr-1 hover:-translate-y-1 transition-all duration-150 ease-in-out"
               alt="LinkedIn profile"
-            />
-          </a>
-          <a
-            href="https://sjoerdvink.medium.com/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Image
-              src="/images/icons/medium.svg"
-              width={24}
-              height={24}
-              className="mr-1 hover:-translate-y-1 transition-all duration-150 ease-in-out"
-              alt="Medium"
             />
           </a>
           <a

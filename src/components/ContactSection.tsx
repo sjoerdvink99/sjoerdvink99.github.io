@@ -30,12 +30,6 @@ export default function ContactSection() {
               linkedin.com/in/sjoerdvink
             </a>
           </li>
-          <li className="flex items-center space-x-3">
-            <Image src="/images/icons/medium.svg" width={20} height={20} alt="Medium" className="h-5 w-5 flex-shrink-0" />
-            <a href="https://sjoerdvink.medium.com/" target="_blank" rel="noreferrer" className="hover:underline text-blue-600 break-all">
-              sjoerdvink.medium.com
-            </a>
-          </li>
         </ul>
       </div>
     </section>

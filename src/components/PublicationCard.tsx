@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Publication } from "@/lib/types";
 import { Fragment } from "react";
+import TrophyIcon from "./TrophyIcon";
 
 function highlightName(authors: string) {
   const name = "Sjoerd Vink";
@@ -17,11 +18,7 @@ function highlightName(authors: string) {
 
 export default function PublicationCard({ pub }: { pub: Publication }) {
   return (
-    <li
-      className={`border-l-4 ${
-        pub.selected ? "border-blue-500" : "border-gray-300"
-      } pl-4`}
-    >
+    <li>
       <div className="flex items-center gap-2 flex-wrap">
         <Link
           href={`/publications/${pub.slug}/`}
@@ -30,7 +27,8 @@ export default function PublicationCard({ pub }: { pub: Publication }) {
           {pub.title}
         </Link>
         {pub.bestPaperAward && (
-          <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-blue-50 text-blue-600 border border-blue-300 whitespace-nowrap">
+          <span className="inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full bg-blue-50 text-blue-600 border border-blue-300 whitespace-nowrap">
+            <TrophyIcon />
             Best Paper Award
           </span>
         )}
@@ -60,9 +58,6 @@ export default function PublicationCard({ pub }: { pub: Publication }) {
             Code
           </a>
         )}
-        <Link href={`/publications/${pub.slug}/`} className="text-blue-600 hover:underline">
-          Details
-        </Link>
       </div>
     </li>
   );

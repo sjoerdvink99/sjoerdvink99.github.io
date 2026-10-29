@@ -68,6 +68,13 @@ export default function AboutSection() {
         foundation for systems in which people and models can communicate,
         inspect, and refine complex information together.
       </p>
+      <p className="mt-4">
+        Outside of research, I enjoy seeking out adventures and exploring the
+        outdoors. I once bought an Opel Saphira that was as old as I was at the
+        time, removed all the seats, built a bed inside, and surfed along the
+        French and Spanish coastlines. These days, I have my sights set on
+        visiting every national park in the United States.
+      </p>
     </section>
   );
 }

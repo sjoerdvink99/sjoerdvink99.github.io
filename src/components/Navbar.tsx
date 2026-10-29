@@ -49,11 +49,6 @@ export default function Navbar({ showBlog = false }: { showBlog?: boolean }) {
                 </a>
               </li>
               <li className="py-1">
-                <a href="#news" onClick={(e) => handleSmoothScroll(e, "news")}>
-                  News
-                </a>
-              </li>
-              <li className="py-1">
                 <a
                   href="#publications"
                   onClick={(e) => handleSmoothScroll(e, "publications")}
@@ -74,9 +69,6 @@ export default function Navbar({ showBlog = false }: { showBlog?: boolean }) {
             <>
               <li className="py-1">
                 <Link href="/#about">About</Link>
-              </li>
-              <li className="py-1">
-                <Link href="/#news">News</Link>
               </li>
               <li className="py-1">
                 <Link href="/#publications">Publications</Link>

@@ -2,11 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import { publications } from "@/data/publications";
 import SubpageLayout from "@/components/SubpageLayout";
 import BibtexBlock from "@/components/BibtexBlock";
-import TrophyIcon from "@/components/TrophyIcon";
-import { Fragment } from "react";
+import AwardBadge from "@/components/AwardBadge";
+import ResourceLinks from "@/components/ResourceLinks";
 
 export function generateStaticParams() {
   return publications.map((pub) => ({ slug: pub.slug }));
@@ -43,6 +44,10 @@ function splitAuthors(authors: string) {
     .filter(Boolean);
 }
 
+const Heading = ({ children }: { children: React.ReactNode }) => (
+  <h2 className="mb-3 text-lg font-semibold">{children}</h2>
+);
+
 export default async function PublicationPage({
   params,
 }: {
@@ -53,100 +58,86 @@ export default async function PublicationPage({
 
   if (!pub) notFound();
 
-  const resources = [
-    pub.paperLink !== "#" && { label: "Paper", href: pub.paperLink },
-    pub.codeLink && { label: "Code", href: pub.codeLink },
-    pub.videoLink && { label: "Video", href: pub.videoLink },
-  ].filter((resource): resource is { label: string; href: string } => Boolean(resource));
   const authors = splitAuthors(pub.authors);
 
   return (
     <SubpageLayout showNavbar={false}>
-      <article className="py-6">
+      <article className="py-10">
         <Link
           href="/#publications"
-          className="mb-8 inline-flex text-sm text-gray-600 hover:text-gray-900 hover:underline"
+          className="text-sm text-gray-500 transition-colors hover:text-blue-600"
         >
-          &larr; Back to publications
+          ← Publications
         </Link>
-        <div className="flex items-center gap-3 flex-wrap mb-2">
-          <h1 className="text-xl md:text-2xl font-semibold text-gray-900">
+
+        <header className="mb-8 mt-6">
+          <h1 className="text-2xl font-light leading-snug tracking-tight md:text-3xl">
             {pub.title}
           </h1>
+          <p className="mt-2 text-sm italic text-gray-500">
+            {pub.venue}, {pub.year}
+          </p>
           {pub.bestPaperAward && (
-            <span className="inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full bg-blue-50 text-blue-600 border border-blue-300 whitespace-nowrap">
-              <TrophyIcon />
-              Best Paper Award
-            </span>
+            <div className="mt-3">
+              <AwardBadge />
+            </div>
           )}
-        </div>
+        </header>
 
         {pub.teaserImage && (
-          <div className="mb-8 flex justify-center">
-            <Image
-              src={pub.teaserImage}
-              alt={`Teaser for ${pub.title}`}
-              width={1600}
-              height={900}
-              className="h-auto max-h-96 w-full max-w-3xl rounded border border-gray-200 object-contain"
-            />
-          </div>
+          <Image
+            src={pub.teaserImage}
+            alt={`Teaser figure for ${pub.title}`}
+            width={1600}
+            height={900}
+            className="mx-auto mb-10 h-auto max-h-96 w-full max-w-3xl rounded border border-gray-200 object-contain"
+          />
         )}
 
-        <div className="mb-6">
-          <h2 className="text-lg font-semibold mb-2">Abstract</h2>
-          <p className="text-gray-700 leading-relaxed">{pub.abstract}</p>
-        </div>
+        <div className="space-y-8">
+          <section>
+            <Heading>Abstract</Heading>
+            <p className="leading-relaxed text-gray-700">{pub.abstract}</p>
+          </section>
 
-        <div className="space-y-6">
-          <div>
-            <h2 className="text-lg font-semibold mb-3">Resources</h2>
-            <div className="flex flex-wrap items-center gap-2 text-sm">
-              {resources.map((resource, index) => (
-                <Fragment key={resource.label}>
-                  {index > 0 && <span className="text-gray-400">|</span>}
-                  <a
-                    href={resource.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-gray-900 underline hover:text-gray-600"
-                  >
-                    {resource.label}
-                  </a>
-                </Fragment>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h2 className="text-lg font-semibold mb-3">People</h2>
-            <div className="flex flex-wrap items-center gap-2 text-sm">
+          <section>
+            <Heading>Resources</Heading>
+            <ResourceLinks pub={pub} />
+          </section>
+
+          <section>
+            <Heading>Authors</Heading>
+            <p className="text-sm text-gray-600">
               {authors.map((author, index) => (
                 <Fragment key={author}>
-                  {index > 0 && <span className="text-gray-400">|</span>}
+                  {index > 0 && ", "}
                   {authorLinks[author] ? (
                     <a
                       href={authorLinks[author]}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-gray-900 underline hover:text-gray-600"
+                      className="link"
                     >
                       {author}
                     </a>
                   ) : (
-                    <span className="text-gray-900">{author}</span>
+                    author
                   )}
                 </Fragment>
               ))}
-            </div>
-          </div>
+            </p>
+          </section>
 
-          <BibtexBlock
-            authors={pub.authors}
-            title={pub.title}
-            venue={pub.venue}
-            year={pub.year}
-            bibtex={pub.bibtex}
-          />
+          <section>
+            <Heading>Citation</Heading>
+            <BibtexBlock
+              authors={pub.authors}
+              title={pub.title}
+              venue={pub.venue}
+              year={pub.year}
+              bibtex={pub.bibtex}
+            />
+          </section>
         </div>
       </article>
     </SubpageLayout>

@@ -4,18 +4,17 @@ import AboutSection from "@/components/AboutSection";
 import PublicationList from "@/components/PublicationList";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import { hasBlog } from "@/lib/blog";
 
 export default function HomePage() {
-  const showBlog = hasBlog();
-
   return (
-    <div className="flex flex-col min-h-screen w-full px-4 md:px-8 lg:w-3/4 xl:w-3/5 mx-auto">
+    <div className="mx-auto flex min-h-screen w-full flex-col px-4 md:px-8 lg:w-3/4 xl:w-3/5">
       <Header />
-      <Navbar showBlog={showBlog} />
-      <AboutSection />
-      <PublicationList />
-      <ContactSection />
+      <Navbar />
+      <main className="flex-1">
+        <AboutSection />
+        <PublicationList />
+        <ContactSection />
+      </main>
       <Footer />
     </div>
   );

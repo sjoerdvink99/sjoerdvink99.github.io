@@ -1,12 +1,10 @@
 {
   "name": "portfolio-sjoerd",
   "version": "0.1.0",
-  "homepage": "https://sjoerdvink99.github.io/portfolio/",
+  "homepage": "https://sjoerdvink99.github.io/",
   "private": true,
   "dependencies": {
     "gray-matter": "^4.0.3",
-    "katex": "^0.18.9",
-    "motion": "^13.4.4",
     "next": "^16.2.4",
     "next-mdx-remote": "^6.0.0",
     "react": "^19.2.5",

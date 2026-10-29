@@ -1,74 +1,85 @@
 import Image from "next/image";
 
+const SOCIALS = [
+  {
+    href: "https://github.com/sjoerdvink99",
+    icon: "/images/icons/github.svg",
+    label: "GitHub",
+  },
+  {
+    href: "https://www.linkedin.com/in/sjoerdvink/",
+    icon: "/images/icons/linkedin.svg",
+    label: "LinkedIn",
+  },
+  {
+    href: "mailto:sjoerdvink@icloud.com",
+    icon: "/images/icons/mail.svg",
+    label: "Email",
+  },
+];
+
+const BUTTONS = [
+  { href: "/images/resume.pdf", label: "CV" },
+  {
+    href: "https://scholar.google.com/citations?user=kHXpSd0AAAAJ&hl=en",
+    label: "Google Scholar",
+  },
+];
+
 export default function Header() {
   return (
-    <section className="py-6 md:py-10 flex flex-col sm:flex-row items-center sm:items-start">
+    <header className="flex flex-col items-center gap-4 py-8 sm:flex-row sm:items-center sm:gap-8 md:py-12">
       <Image
         src="/images/sjoerd.jpg"
         width={160}
         height={160}
-        className="h-32 w-32 md:h-40 md:w-40 mb-4 sm:mb-0 rounded-full object-cover"
-        alt="Sjoerd Vink"
+        className="h-32 w-32 shrink-0 rounded-full object-cover md:h-40 md:w-40"
+        alt="Portrait of Sjoerd Vink"
         priority
       />
-      <div className="flex flex-col sm:ml-4 text-center sm:text-left">
-        <h1 className="text-3xl md:text-4xl font-light">Sjoerd Vink</h1>
-        <span className="font-light">
-          PhD Student in CS at Utrecht University & Tufts University
-        </span>
-        <span className="font-light">sjoerdvink@icloud.com</span>
-        <div className="mt-3 flex justify-center sm:justify-start">
-          <a
-            href="https://github.com/sjoerdvink99"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Image
-              src="/images/icons/github.svg"
-              width={24}
-              height={24}
-              className="mr-1 hover:-translate-y-1 transition-all duration-150 ease-in-out"
-              alt="GitHub profile"
-            />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/sjoerdvink/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Image
-              src="/images/icons/linkedin.svg"
-              width={24}
-              height={24}
-              className="mr-1 hover:-translate-y-1 transition-all duration-150 ease-in-out"
-              alt="LinkedIn profile"
-            />
-          </a>
-          <a
-            href="mailto:sjoerdvink@icloud.com"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Image
-              src="/images/icons/mail.svg"
-              width={24}
-              height={24}
-              className="hover:-translate-y-1 transition-all duration-150 ease-in-out"
-              alt="Email"
-            />
-          </a>
+      <div className="flex flex-col text-center sm:text-left">
+        <h1 className="text-3xl font-light tracking-tight md:text-4xl">
+          Sjoerd Vink{" "}
+          <span className="align-middle text-base font-light text-gray-500">
+            /ʃuːrt/
+          </span>
+        </h1>
+        <p className="mt-1 font-light text-gray-600">
+          PhD Candidate in Computer Science
+          <br />
+          Utrecht University &amp; Tufts University
+          <br />
+          sjoerdvink@icloud.com
+        </p>
+        <div className="mt-3 flex flex-wrap justify-center gap-2 sm:justify-start">
+          {BUTTONS.map((button) => (
+            <a
+              key={button.label}
+              href={button.href}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center border border-gray-300 px-3 py-1.5 text-sm font-light leading-none transition-colors hover:border-gray-900 hover:bg-gray-50"
+            >
+              {button.label}
+            </a>
+          ))}
         </div>
-        <div className="mt-4 flex flex-wrap justify-center gap-2 sm:justify-start">
-          <a
-            href="/images/resume.pdf"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center border border-gray-300 px-3 py-1.5 text-sm font-light leading-none transition-colors hover:border-gray-900 hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
-          >
-            Resume
-          </a>
+        <div className="mt-4 flex justify-center gap-2 sm:justify-start">
+          {SOCIALS.map((social) => (
+            <a
+              key={social.label}
+              href={social.href}
+              aria-label={social.label}
+              {...(social.href.startsWith("http")
+                ? { target: "_blank", rel: "noreferrer" }
+                : {})}
+              className="opacity-90 transition hover:-translate-y-0.5 hover:opacity-100"
+            >
+              <Image src={social.icon} width={24} height={24} alt="" />
+            </a>
+          ))}
         </div>
       </div>
-    </section>
+    </header>
   );
 }

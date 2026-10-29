@@ -1,16 +1,26 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-sans",
+});
+
+const description =
+  "PhD candidate in Computer Science at Utrecht University and Tufts University, studying representations for human–AI interaction.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sjoerdvink99.github.io/"),
   title: {
     template: "%s | Sjoerd Vink",
     default: "Sjoerd Vink",
   },
-  description:
-    "PhD student in Computer Science at Utrecht University. Working on intent representation in AI and data analysis.",
+  description,
   openGraph: {
     title: "Sjoerd Vink",
-    description: "PhD student in Computer Science at Utrecht University.",
+    description,
     url: "https://sjoerdvink99.github.io/",
     siteName: "Sjoerd Vink",
     type: "website",
@@ -27,9 +37,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="bg-white text-gray-900 antialiased">
-        <div className="h-1 w-full bg-blue-600" aria-hidden="true" />
+    <html lang="en" className={inter.variable}>
+      <body className="bg-white font-sans text-gray-900 antialiased">
+        <div className="h-1.5 w-full bg-blue-600" aria-hidden="true" />
         {children}
       </body>
     </html>

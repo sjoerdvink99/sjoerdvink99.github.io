@@ -1,8 +1,3 @@
-export interface NewsItem {
-  date: string;
-  text: string;
-}
-
 export interface Publication {
   slug: string;
   title: string;

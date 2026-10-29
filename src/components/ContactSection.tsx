@@ -1,37 +1,59 @@
 import Image from "next/image";
 
+const CHANNELS = [
+  {
+    href: "mailto:sjoerdvink@icloud.com",
+    icon: "/images/icons/mail.svg",
+    label: "Email",
+    text: "sjoerdvink@icloud.com",
+  },
+  {
+    href: "https://github.com/sjoerdvink99",
+    icon: "/images/icons/github.svg",
+    label: "GitHub",
+    text: "github.com/sjoerdvink99",
+  },
+  {
+    href: "https://www.linkedin.com/in/sjoerdvink/",
+    icon: "/images/icons/linkedin.svg",
+    label: "LinkedIn",
+    text: "linkedin.com/in/sjoerdvink",
+  },
+];
+
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-10 border-b-2">
-      <h2 className="text-2xl mb-6">Contact</h2>
-
-      <div className="space-y-4 text-gray-700 text-base">
-        <p>
-          I&apos;m always happy to connect. Feel free to reach out via email or
-          follow me on my other platforms:
-        </p>
-
-        <ul className="space-y-3">
-          <li className="flex items-center space-x-3">
-            <Image src="/images/icons/mail.svg" width={20} height={20} alt="email" className="h-5 w-5 flex-shrink-0" />
-            <a href="mailto:sjoerdvink@icloud.com" className="hover:underline text-blue-600 break-all">
-              sjoerdvink@icloud.com
+    <section
+      id="contact"
+      className="scroll-mt-20 border-b-2 border-gray-200 py-10"
+    >
+      <h2 className="mb-6 text-2xl font-light">Contact</h2>
+      <p className="leading-relaxed">
+        I&apos;m always happy to connect. Feel free to reach out by email or
+        find me on the platforms below.
+      </p>
+      <ul className="mt-4 space-y-3">
+        {CHANNELS.map((channel) => (
+          <li key={channel.label} className="flex items-center gap-3">
+            <Image
+              src={channel.icon}
+              width={20}
+              height={20}
+              alt={channel.label}
+              className="h-5 w-5 shrink-0"
+            />
+            <a
+              href={channel.href}
+              {...(channel.href.startsWith("http")
+                ? { target: "_blank", rel: "noreferrer" }
+                : {})}
+              className="link break-all"
+            >
+              {channel.text}
             </a>
           </li>
-          <li className="flex items-center space-x-3">
-            <Image src="/images/icons/github.svg" width={20} height={20} alt="GitHub" className="h-5 w-5 flex-shrink-0" />
-            <a href="https://github.com/sjoerdvink99" target="_blank" rel="noreferrer" className="hover:underline text-blue-600 break-all">
-              github.com/sjoerdvink99
-            </a>
-          </li>
-          <li className="flex items-center space-x-3">
-            <Image src="/images/icons/linkedin.svg" width={20} height={20} alt="LinkedIn" className="h-5 w-5 flex-shrink-0" />
-            <a href="https://www.linkedin.com/in/sjoerdvink/" target="_blank" rel="noreferrer" className="hover:underline text-blue-600 break-all">
-              linkedin.com/in/sjoerdvink
-            </a>
-          </li>
-        </ul>
-      </div>
+        ))}
+      </ul>
     </section>
   );
 }

@@ -44,7 +44,7 @@ export default function Navbar() {
     <>
       <div ref={sentinelRef} />
       <nav
-        className={`sticky top-0 z-10 border-y-2 border-gray-200 bg-white py-4 transition-shadow duration-200 ${
+        className={`sticky top-0 z-10 border-y-2 border-gray-200 bg-paper py-4 transition-shadow duration-200 ${
           isSticky ? "shadow-sm" : ""
         }`}
       >

@@ -27,7 +27,7 @@ export default function ContactSection() {
       id="contact"
       className="scroll-mt-20 border-b-2 border-gray-200 py-10"
     >
-      <h2 className="mb-6 text-2xl font-light">Contact</h2>
+      <h2 className="section-title">Contact</h2>
       <p className="leading-relaxed">
         I&apos;m always happy to connect. Feel free to reach out by email or
         find me on the platforms below.

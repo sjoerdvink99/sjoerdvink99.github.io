@@ -94,13 +94,13 @@ export default function BlogPage() {
 
         {reflections.length > 0 && (
           <section className="mt-10">
-            <h2 className="mb-6 text-2xl font-light">Reflections</h2>
+            <h2 className="section-title">Reflections</h2>
             <EntryList entries={reflections} />
           </section>
         )}
 
         <section className="mt-10">
-          <h2 className="mb-6 text-2xl font-light">Educational essays</h2>
+          <h2 className="section-title">Educational essays</h2>
           <EntryList entries={essayEntries} />
         </section>
       </div>

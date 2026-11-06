@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
 import AboutSection from "@/components/AboutSection";
 import PublicationList from "@/components/PublicationList";
+import SoftwareSection from "@/components/SoftwareSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -13,6 +14,7 @@ export default function HomePage() {
       <main className="flex-1">
         <AboutSection />
         <PublicationList />
+        <SoftwareSection />
         <ContactSection />
       </main>
       <Footer />

@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 const SECTIONS = [
   { id: "about", label: "About" },
   { id: "publications", label: "Publications" },
+  { id: "software", label: "Software" },
   { id: "contact", label: "Contact" },
 ];
 

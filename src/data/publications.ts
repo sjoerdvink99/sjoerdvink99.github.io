@@ -2,6 +2,26 @@ import { Publication } from "@/lib/types";
 
 export const publications: Publication[] = [
   {
+    slug: "GroundWork",
+    title:
+      "GroundWork: Bridging Human and LLM Reasoning Through a Structured Argumentation Model",
+    authors:
+      "Sjoerd Vink, Byungmoo Kim, Michael Behrisch, Adam Coscia, Remco Chang",
+    venue: "arXiv",
+    year: 2026,
+    paperLink: "https://arxiv.org/abs/2611.09840",
+    bestPaperAward: false,
+    teaserImage: "/images/groundwork.png",
+    abstract:
+      "Large language models (LLMs) are increasingly integrated into workflows that require reasoning over text documents, yet interaction remains largely conversational. This leaves argumentative structure implicit or embedded in text, making it difficult to maintain, compare, and revise arguments as analyses evolve. We present GroundWork, a mixed-initiative system that makes argument structure a shared, editable state for humans and LLMs. GroundWork operationalizes the Toulmin model of argumentation as a typed graph with explicit operations for human and LLM edits. It exposes this structure through coordinated corpus views and an editable workbench for constructing, comparing, testing, and tracing source-grounded arguments. We evaluate GroundWork through an expert study with four participants spanning consulting, product development, law, and immunology, and three use-case scenarios in intelligence, law, and medicine. Our findings show that GroundWork makes source-grounded arguments inspectable, comparable, and revisable as shared human-LLM state.",
+    bibtex: `@article{vink2026groundwork,
+  title   = {GroundWork: Bridging Human and LLM Reasoning Through a Structured Argumentation Model},
+  author  = {Vink, Sjoerd and Kim, Byungmoo and Behrisch, Michael and Coscia, Adam and Chang, Remco},
+  journal = {arXiv preprint arXiv:2611.09840},
+  year    = {2026},
+}`,
+  },
+  {
     slug: "ZipLine",
     title:
       "ZipLine: Visual Analysis of Multivariate Graphs with Predicate Logic",
